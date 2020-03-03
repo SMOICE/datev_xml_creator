@@ -3,11 +3,13 @@
 class View_XML_AccountsReceivableLedger extends View_XML_Base
 {
   protected $invoice;
+  protected $kontenrahmen;
 
-  public function __construct(Model_Invoice $invoice)
+  public function __construct(Model_Invoice $invoice, Model_Kontenrahmen $rahmen = null)
   {
     parent::__construct();
     $this->invoice = $invoice;
+    $this->kontenrahmen = $rahmen ? $rahmen : new Model_Kontenrahmen;
   }
 
   protected function rootElement()
@@ -38,7 +40,7 @@ class View_XML_AccountsReceivableLedger extends View_XML_Base
     $accountsReceivableLedger = $consolidate->addChild('accountsReceivableLedger');
     $accountsReceivableLedger->addChild('date', $this->invoice->date->format('Y-m-d'));
     $accountsReceivableLedger->addChild('amount', sprintf("%0.2f", $detail->amount));
-    $accountsReceivableLedger->addChild('accountNo', "4400");
+    $accountsReceivableLedger->addChild('accountNo', $this->kontenrahmen->konto($detail->taxRate));
     $accountsReceivableLedger->addChild('tax', sprintf("%0.2f", $detail->taxRate));
     $accountsReceivableLedger->addChild('currencyCode', $this->invoice->currencyCode);
     $accountsReceivableLedger->addChild('invoiceId', $this->invoice->number);
