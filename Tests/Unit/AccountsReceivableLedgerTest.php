@@ -10,17 +10,28 @@ require_once __DIR__ . '/../../View/XML/AccountsReceivableLedger.php';
 
 class View_XML_AccountsReceivableLedgerTest extends BaseTestCase
 {
-  public function testConstructor()
+  public function testNormal()
   {
     $invoice = new Model_Invoice(new DateTime('2020-03-03'), 'number', 'customerName', 'EUR');
     $invoice->addDetail(new Model_InvoiceDetail(59.50, 19));
 
     $ledger = new View_XML_AccountsReceivableLedger($invoice);
 
-    $this->assertEquals($this->getExpected(), $ledger->__toString());
+    $this->assertEquals($this->getExpected1(), $ledger->__toString());
   }
 
-  private function getExpected()
+  public function testDefinierterKontenRahmen()
+  {
+    $invoice = new Model_Invoice(new DateTime('2020-03-03'), 'number', 'customerName', 'EUR');
+    $invoice->addDetail(new Model_InvoiceDetail(59.50, 19));
+
+    $ledger = new View_XML_AccountsReceivableLedger($invoice);
+
+    $this->assertEquals($this->getExpected1(), $ledger->__toString());
+  }
+
+
+  private function getExpected1()
   {
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <LedgerImport xmlns=\"http://xml.datev.de/bedi/tps/ledger/v040\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/ledger/v040 Belegverwaltung_online_ledger_import_v040.xsd\" version=\"4.0\" generator_info=\"SMOICE-DATEV\" generating_system=\"SMOICE-DATEV\" xml_data=\"Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug\">
