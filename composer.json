@@ -1,0 +1,9 @@
+{
+  "name": "smoice/datev-xml-creator",
+  "description": "library for the creation of XML structures for DATEV Unternehmen Online",
+  "homepage": "https://github.com/SMOICE/datev_xml_creator",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.2"
+  }
+}
