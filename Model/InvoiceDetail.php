@@ -1,15 +1,13 @@
 <?php
 
-class Model_InvoiceDetail
+class Model_InvoiceDetail extends Model_Base
 {
-  public $amount;
-  public $currencyCode;
-  public $taxRate;
+  protected $amount;
+  protected $taxRate;
 
-  public function __construct(float $amount, string $currencyCode, float $taxRate)
+  public function __construct(float $amount, float $taxRate)
   {
     $this->amount = $amount;
-    $this->currencyCode = $currencyCode;
     $this->taxRate = $taxRate;
   }
 }
