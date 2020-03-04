@@ -1,5 +1,7 @@
 <?php
 
-class Exception_DocumentCreator extends Exception
+namespace smoice\datev;
+
+class Exception_DocumentCreator extends \Exception
 {
 }

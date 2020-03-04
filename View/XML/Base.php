@@ -1,5 +1,7 @@
 <?php
 
+namespace smoice\datev;
+
 abstract class View_XML_Base extends Model_Base
 {
   protected $xml;
@@ -13,7 +15,7 @@ abstract class View_XML_Base extends Model_Base
 
   final protected function initXML()
   {
-    $this->xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?>' . $this->rootElement());
+    $this->xml = new \SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?>' . $this->rootElement());
   }
 
   abstract protected function rootElement();

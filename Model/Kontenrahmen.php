@@ -1,5 +1,7 @@
 <?php
 
+namespace smoice\datev;
+
 class Model_Kontenrahmen
 {
   private $konten;

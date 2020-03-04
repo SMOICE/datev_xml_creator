@@ -6,6 +6,9 @@
   "require": {
     "php": ">=7.2"
   },
+  "autoload": {
+    "psr-4": { "smoice\\datev\\": "" }
+  },
   "require-dev": {
     "phpunit/phpunit": "^9.0"
   }

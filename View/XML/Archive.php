@@ -1,5 +1,7 @@
 <?php
 
+namespace smoice\datev;
+
 class View_XML_Archive extends View_XML_Base
 {
   protected $creationTime;
@@ -8,7 +10,7 @@ class View_XML_Archive extends View_XML_Base
   protected $pdfFileName;
   protected $richtung;
   
-  public function __construct ( DateTime $creationTime, DateTime $invoiceDate, string $xmlFileName, string $pdfFileName, string $richtung = 'Ausgang' )
+  public function __construct ( \DateTime $creationTime, \DateTime $invoiceDate, string $xmlFileName, string $pdfFileName, string $richtung = 'Ausgang' )
   {
     parent::__construct();
     $this->creationTime = $creationTime;

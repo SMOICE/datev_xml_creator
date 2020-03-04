@@ -1,5 +1,7 @@
 <?php
 
+namespace smoice\datev;
+
 abstract class Model_Base
 {
   public function __construct()

@@ -1,5 +1,7 @@
 <?php
 
+namespace smoice\datev;
+
 class Creator_DocumentPackage
 {
   private $invoice;
@@ -28,8 +30,8 @@ class Creator_DocumentPackage
 
   private function createZip()
   {
-    $this->zip = new ZipArchive;
-    if (TRUE !== $this->zip->open($this->outputFileName, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE))
+    $this->zip = new \ZipArchive;
+    if (TRUE !== $this->zip->open($this->outputFileName, \ZIPARCHIVE::CREATE | \ZIPARCHIVE::OVERWRITE))
       throw new Exception_DocumentCreator('Inititalisierung ZIP-Archiv ist gescheitert.');
   }
 
@@ -45,7 +47,7 @@ class Creator_DocumentPackage
 
   protected function addDocument()
   {
-    $xml = new View_XML_Archive(new DateTime, $this->invoice->date, $this->getXMLFileName(), $this->getPDFFileName(), $this->richtung);
+    $xml = new View_XML_Archive(new \DateTime, $this->invoice->date, $this->getXMLFileName(), $this->getPDFFileName(), $this->richtung);
     $this->zip->addFromString('document.xml', $xml->__toString());
   }
 

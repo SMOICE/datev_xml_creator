@@ -1,5 +1,7 @@
 <?php
 
+namespace smoice\datev;
+
 class View_XML_AccountsReceivableLedger extends View_XML_Base
 {
   protected $invoice;
@@ -24,7 +26,7 @@ class View_XML_AccountsReceivableLedger extends View_XML_Base
     {$this->addDetails($consolidate,$detail);}
   }
 
-  protected function addConsolidate(): SimpleXMLElement
+  protected function addConsolidate(): \SimpleXMLElement
   {
     $consolidate = $this->xml->addChild('consolidate');
     $consolidate->addAttribute('consolidatedAmount', sprintf("%0.2f", $this->invoice->amount));
@@ -35,7 +37,7 @@ class View_XML_AccountsReceivableLedger extends View_XML_Base
     return $consolidate;
   }
 
-  protected function addDetails(SimpleXMLElement $consolidate, Model_InvoiceDetail $detail)
+  protected function addDetails(\SimpleXMLElement $consolidate, Model_InvoiceDetail $detail)
   {
     $accountsReceivableLedger = $consolidate->addChild('accountsReceivableLedger');
     $accountsReceivableLedger->addChild('date', $this->invoice->date->format('Y-m-d'));
