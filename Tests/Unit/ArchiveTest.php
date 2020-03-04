@@ -24,7 +24,7 @@ class View_XML_ArchiveTest extends BaseTestCase
   private function getExpectedAusgang()
   {
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<archive xmlns=\"http://xml.datev.de/bedi/tps/document/v04.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/document/v04.0 Document_v040.xsd\" version=\"4.0\" generatingSystem=\"SMOICE_DATEV\">
+<archive xmlns=\"http://xml.datev.de/bedi/tps/document/v04.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/document/v04.0 Document_v040.xsd\" version=\"4.0\" generatingSystem=\"SMOICE-DATEV\">
   <header>
     <date>2020-03-04T11:57:18</date>
     <description>Belegsatzdaten Ausgangsrechnung</description>
@@ -45,7 +45,7 @@ class View_XML_ArchiveTest extends BaseTestCase
   private function getExpectedEingang()
   {
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<archive xmlns=\"http://xml.datev.de/bedi/tps/document/v04.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/document/v04.0 Document_v040.xsd\" version=\"4.0\" generatingSystem=\"SMOICE_DATEV\">
+<archive xmlns=\"http://xml.datev.de/bedi/tps/document/v04.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/document/v04.0 Document_v040.xsd\" version=\"4.0\" generatingSystem=\"SMOICE-DATEV\">
   <header>
     <date>2020-03-04T11:57:18</date>
     <description>Belegsatzdaten Eingangsrechnung</description>

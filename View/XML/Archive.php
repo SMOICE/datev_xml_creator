@@ -20,7 +20,7 @@ class View_XML_Archive extends View_XML_Base
   
   protected function rootElement ( )
   {
-    return "<archive xmlns=\"http://xml.datev.de/bedi/tps/document/v04.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/document/v04.0 Document_v040.xsd\" version=\"4.0\" generatingSystem=\"SMOICE_DATEV\" />";
+    return "<archive xmlns=\"http://xml.datev.de/bedi/tps/document/v04.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://xml.datev.de/bedi/tps/document/v04.0 Document_v040.xsd\" version=\"4.0\" generatingSystem=\"SMOICE-DATEV\" />";
   }
 
   protected function generateContent ( )

@@ -34,7 +34,6 @@ class View_XML_AccountsReceivableLedgerTest extends BaseTestCase
     $this->assertEquals($this->getExpected("8400"), $ledger->__toString());
   }
 
-
   private function getExpected(string $konto = "4400")
   {
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>

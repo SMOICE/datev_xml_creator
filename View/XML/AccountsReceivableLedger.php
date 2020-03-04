@@ -24,7 +24,7 @@ class View_XML_AccountsReceivableLedger extends View_XML_Base
     {$this->addDetails($consolidate,$detail);}
   }
 
-  protected function addConsolidate()
+  protected function addConsolidate(): SimpleXMLElement
   {
     $consolidate = $this->xml->addChild('consolidate');
     $consolidate->addAttribute('consolidatedAmount', sprintf("%0.2f", $this->invoice->amount));
