@@ -14,7 +14,7 @@ class View_XML_AccountsReceivableLedger extends View_XML_Base
 
   protected function rootElement()
   {
-    return '<LedgerImport xmlns="http://xml.datev.de/bedi/tps/ledger/v040" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xml.datev.de/bedi/tps/ledger/v040 Belegverwaltung_online_ledger_import_v040.xsd" version="4.0" generator_info="SMOICE-DATEV" generating_system="SMOICE-DATEV" xml_data="Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug" />';
+    return '<LedgerImport '.$this->xmlns().' generator_info='.$this->generator().' generating_system='.$this->generator().' xml_data="Kopie nur zur Verbuchung berechtigt nicht zum Vorsteuerabzug" />';
   }
 
   protected function generateContent()
