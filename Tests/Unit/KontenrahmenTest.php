@@ -8,7 +8,7 @@ class Model_KontenrahmenTest extends BaseTestCase
 {
   public function testEmptyConstructor()
   {
-    $rahmen = new Model_Kontenrahmen;
+    $rahmen = new smoice\datev\Model_Kontenrahmen;
 
     $this->assertEquals(4200, $rahmen->konto(0));
     $this->assertEquals(4300, $rahmen->konto(7));
@@ -17,7 +17,7 @@ class Model_KontenrahmenTest extends BaseTestCase
 
   public function testDefineYourOwn()
   {
-    $rahmen = new Model_Kontenrahmen;
+    $rahmen = new smoice\datev\Model_Kontenrahmen;
 
     $rahmen->konto(0, 8100);
     $rahmen->konto(7, 8300);

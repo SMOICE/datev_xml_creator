@@ -11,13 +11,13 @@ class View_XML_ArchiveTest extends BaseTestCase
 {
   public function testAusgang()
   {
-    $archive = new View_XML_Archive(new DateTime('2020-03-04 11:57:18'), new DateTime('2020-03-03'), 'ausgangsrechnung_4711.xml', 'ausgangsrechnung_4711.pdf');
+    $archive = new smoice\datev\View_XML_Archive(new \DateTime('2020-03-04 11:57:18'), new \DateTime('2020-03-03'), 'ausgangsrechnung_4711.xml', 'ausgangsrechnung_4711.pdf');
     $this->assertEquals($this->getExpectedAusgang(), $archive->__toString());
   }
 
   public function testEingang()
   {
-    $archive = new View_XML_Archive(new DateTime('2020-03-04 11:57:18'), new DateTime('2020-03-03'), 'eingangsrechnung_4711.xml', 'eingangsrechnung_4711.pdf', 'Eingang');
+    $archive = new smoice\datev\View_XML_Archive(new \DateTime('2020-03-04 11:57:18'), new \DateTime('2020-03-03'), 'eingangsrechnung_4711.xml', 'eingangsrechnung_4711.pdf', 'Eingang');
     $this->assertEquals($this->getExpectedEingang(), $archive->__toString());
   }
 

@@ -9,7 +9,7 @@ class Model_Invoice extends Model_Base
   protected $number;
   protected $customerName;
 
-  public function __construct(DateTime $date, string $number, string $customerName, string $currencyCode)
+  public function __construct(\DateTime $date, string $number, string $customerName, string $currencyCode)
   {
     $this->date = $date;
     $this->number = $number;

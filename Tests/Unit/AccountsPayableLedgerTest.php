@@ -15,10 +15,10 @@ class View_XML_AccountsPayableLedgerTest extends BaseTestCase
 {
   public function testNormal()
   {
-    $invoice = new Model_Invoice(new DateTime('2020-03-03'), 'number', 'supplierName', 'EUR');
-    $invoice->addDetail(new Model_InvoiceDetail(59.50, 19));
+    $invoice = new smoice\datev\Model_Invoice(new \DateTime('2020-03-03'), 'number', 'supplierName', 'EUR');
+    $invoice->addDetail(new smoice\datev\Model_InvoiceDetail(59.50, 19));
 
-    $ledger = new View_XML_AccountsPayableLedger($invoice);
+    $ledger = new smoice\datev\View_XML_AccountsPayableLedger($invoice);
 
     $this->assertEquals($this->getExpected(), $ledger->__toString());
   }

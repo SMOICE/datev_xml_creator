@@ -14,22 +14,22 @@ class View_XML_AccountsReceivableLedgerTest extends BaseTestCase
 {
   public function testNormal()
   {
-    $invoice = new Model_Invoice(new DateTime('2020-03-03'), 'number', 'customerName', 'EUR');
-    $invoice->addDetail(new Model_InvoiceDetail(59.50, 19));
+    $invoice = new smoice\datev\Model_Invoice(new \DateTime('2020-03-03'), 'number', 'customerName', 'EUR');
+    $invoice->addDetail(new smoice\datev\Model_InvoiceDetail(59.50, 19));
 
-    $ledger = new View_XML_AccountsReceivableLedger($invoice);
+    $ledger = new smoice\datev\View_XML_AccountsReceivableLedger($invoice);
 
     $this->assertEquals($this->getExpected(), $ledger->__toString());
   }
 
   public function testDefinierterKontenRahmen()
   {
-    $invoice = new Model_Invoice(new DateTime('2020-03-03'), 'number', 'customerName', 'EUR');
-    $invoice->addDetail(new Model_InvoiceDetail(59.50, 19));
+    $invoice = new smoice\datev\Model_Invoice(new \DateTime('2020-03-03'), 'number', 'customerName', 'EUR');
+    $invoice->addDetail(new smoice\datev\Model_InvoiceDetail(59.50, 19));
 
-    $rahmen = new Model_Kontenrahmen;
+    $rahmen = new smoice\datev\Model_Kontenrahmen;
     $rahmen->konto(19,8400);
-    $ledger = new View_XML_AccountsReceivableLedger($invoice,$rahmen);
+    $ledger = new smoice\datev\View_XML_AccountsReceivableLedger($invoice,$rahmen);
 
     $this->assertEquals($this->getExpected("8400"), $ledger->__toString());
   }

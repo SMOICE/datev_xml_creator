@@ -8,7 +8,7 @@ class Model_InvoiceDetailTest extends BaseTestCase
 {
   public function testConstructor()
   {
-    $detail = new Model_InvoiceDetail(
+    $detail = new smoice\datev\Model_InvoiceDetail(
       59.50,
       19
     );
