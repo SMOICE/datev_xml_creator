@@ -6,7 +6,7 @@ class Creator_DocumentPackage
   private $pdfFileName;
   private $outputFileName;
   private $richtung;
-  
+
   private $zip;
 
   public function __construct(Model_Invoice $invoice, string $pdfFileName, string $outputFileName, string $richtung = 'Ausgang')
@@ -29,28 +29,32 @@ class Creator_DocumentPackage
   private function createZip()
   {
     $this->zip = new ZipArchive;
-    if (TRUE !== $this->zip->open($this->outputFile, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE))
+    if (TRUE !== $this->zip->open($this->outputFileName, ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE))
       throw new Exception_DocumentCreator('Inititalisierung ZIP-Archiv ist gescheitert.');
   }
 
   protected function addInvoice()
   {
-    if ($this->richtung == 'Ausgang') {$xml = new View_XML_AccountsReceivableLedger($this->invoice);} else {$xml = new View_XML_AccountsPayableLedger($this->invoice);}
+    if ($this->richtung == 'Ausgang') {
+      $xml = new View_XML_AccountsReceivableLedger($this->invoice);
+    } else {
+      $xml = new View_XML_AccountsPayableLedger($this->invoice);
+    }
     $this->zip->addFromString($this->getXMLFileName(), $xml->__toString());
   }
 
   protected function addDocument()
   {
-    $xml = new View_XML_Archive(new DateTime, $this->invoice->date, $this->getXMLFileName(), $this->getPDFFileName(),$this->richtung);
+    $xml = new View_XML_Archive(new DateTime, $this->invoice->date, $this->getXMLFileName(), $this->getPDFFileName(), $this->richtung);
     $this->zip->addFromString('document.xml', $xml->__toString());
   }
 
   protected function addFile()
   {
-    if (!file_exists($this->pdfFile))
-      throw new Exception_DocumentCreator('Rechnungs-PDF nicht gefunden: ' . $this->pdfFile);
+    if (!file_exists($this->pdfFileName))
+      throw new Exception_DocumentCreator('Rechnungs-PDF nicht gefunden: ' . $this->pdfFileName);
 
-    $this->zip->addFile($this->pdfFile, $this->getPDFFileName());
+    $this->zip->addFile($this->pdfFileName, $this->getPDFFileName());
   }
 
   protected function closeZip()
@@ -70,6 +74,6 @@ class Creator_DocumentPackage
 
   protected function getFileName($ext)
   {
-    return $this->richtung.'srechnung_' . str_replace(array('/', "\\"), "_", $this->invoice->number) . '.' . $ext;
+    return $this->richtung . 'srechnung_' . str_replace(array('/', "\\"), "_", $this->invoice->number) . '.' . $ext;
   }
 }
