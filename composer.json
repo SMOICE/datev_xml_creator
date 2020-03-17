@@ -4,7 +4,7 @@
   "homepage": "https://github.com/SMOICE/datev_xml_creator",
   "license": "MIT",
   "require": {
-    "php": ">=7.2"
+    "php": ">=7.0"
   },
   "autoload": {
     "classmap": ["src"]
